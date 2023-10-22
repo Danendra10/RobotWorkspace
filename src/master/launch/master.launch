@@ -1,0 +1,13 @@
+<launch>
+
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="port" value="9900" />
+    </include>
+
+    <!-- Main -->
+    <node  name="master" pkg="master" type="master" output="screen" respawn="true" />
+
+    <!-- Vision -->
+    <node name="capture" pkg="vision" type="capture" output="screen" respawn="true" />
+
+</launch>
