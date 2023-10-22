@@ -37,8 +37,7 @@ int main(int argc, char **argv)
         }
     }
     spinner_thread.join();
-#endif
-#ifndef DEBUG
+#else
     spinner.spin();
 #endif
 

@@ -9,5 +9,6 @@
 
     <!-- Vision -->
     <node name="capture" pkg="vision" type="capture" output="screen" respawn="true" />
+    <node name="main" pkg="vision" type="main" output="screen" respawn="true" />
 
 </launch>
