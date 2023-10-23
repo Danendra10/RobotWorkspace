@@ -38,4 +38,4 @@ add_executable(capture src/capture.cpp)
 target_link_libraries(capture ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} logger_lib)
 
 add_executable(main src/main.cpp)
-target_link_libraries(main ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} logger_lib vision_helper_lib)
+target_link_libraries(main ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} logger_lib vision_helper_lib global_lib)

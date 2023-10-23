@@ -19,3 +19,6 @@ target_link_libraries(logger_lib ${catkin_LIBRARIES})
 
 add_library(vision_helper_lib src/vision_helper.cpp)
 target_link_libraries(vision_helper_lib ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+add_library(global_lib src/global.cpp)
+target_link_libraries(global_lib ${catkin_LIBRARIES})

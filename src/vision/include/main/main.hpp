@@ -16,6 +16,7 @@
 
 #include "logger/logger.hpp"
 #include "vision_helper/vision_helper.hpp"
+#include "global/global.hpp"
 
 logger::Logger logger_instance;
 
@@ -26,6 +27,8 @@ cv::Mat raw_frame;
 cv::Mat bgr_frame;
 cv::Mat thresholded_field;
 cv::Mat raw_thresholded_field;
+cv::Mat raw_ball;
+cv::Mat thresholded_ball;
 cv::Mat display_field;
 
 //---ROS Variables
@@ -36,6 +39,8 @@ image_transport::Subscriber sub_raw_frame;
 //---Variables
 std::mutex mtx_main_frame;
 std::mutex mtx_field_frame;
+std::mutex mtx_ball_frame;
+std::mutex mtx_ball_and_field_frame;
 std::mutex mtx_draw_field;
 std::mutex mtx_bgr_field;
 
@@ -44,6 +49,12 @@ const uint16_t res_y = 640;
 const uint8_t r_cam = 60;
 const uint8_t center_cam_x = res_x / 2;
 const uint8_t center_cam_y = res_y / 2;
+uint16_t counter_ball_in;
+uint16_t counter_ball_out;
+uint8_t ball_status;
+Ball_t ball_on_frame;
+Ball_t ball_on_field;
+Robot_t robot_on_field;
 
 int field_threshold[6] = {53, 101, 61, 255, 116, 255};
 int ball_threshold[6] = {1, 59, 75, 255, 189, 255};
