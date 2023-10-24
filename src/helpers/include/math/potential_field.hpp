@@ -1,0 +1,4 @@
+#ifndef POTENTIAL_FIELD_HPP_
+#define POTENTIAL_FIELD_HPP_
+
+#endif
