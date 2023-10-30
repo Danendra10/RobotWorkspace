@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(helpers)
 
-add_compile_options(-std=c++11)
+add_compile_options(-std=c++17)
 
 find_package(OpenCV REQUIRED)
 
@@ -14,6 +14,8 @@ include_directories(
     ${catkin_INCLUDE_DIRS}
 )
 
+link_libraries(stdc++fs)
+
 add_library(logger_lib src/logger.cpp)
 target_link_libraries(logger_lib ${catkin_LIBRARIES})
 
@@ -22,3 +24,6 @@ target_link_libraries(vision_helper_lib ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 add_library(global_lib src/global.cpp)
 target_link_libraries(global_lib ${catkin_LIBRARIES})
+
+add_library(helper_lib src/helper.cpp)
+target_link_libraries(helper_lib ${catkin_LIBRARIES})

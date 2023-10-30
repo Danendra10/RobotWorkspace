@@ -23,6 +23,7 @@ logger::Logger logger_instance;
 //---Vision Variables
 cv::VideoCapture cap;
 
+cv::Mat recieved_frame;
 cv::Mat raw_frame;
 cv::Mat bgr_frame;
 cv::Mat thresholded_field;

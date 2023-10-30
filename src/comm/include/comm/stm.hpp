@@ -91,6 +91,7 @@ char recv_buffer[64];
 char send_buffer[64] = "its";
 // char send_buffer[64] = {'i', 't', 's'};
 char isian[12] = "qweasdz\n";
+const float k_PID_motor[3] = {18, 8, 0};
 
 //---Prototypes
 void CllbckRecv(const ros::TimerEvent &);

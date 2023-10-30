@@ -13,6 +13,8 @@
 
 #include "logger/logger.hpp"
 #include "opencv2/opencv.hpp"
+#include <helper/helper.hpp>
+#include <string>
 
 logger::Logger logger_instance;
 
@@ -30,6 +32,7 @@ image_transport::Publisher pub_frame;
 std::mutex mtx_main_frame;
 const uint16_t res_x = 360;
 const uint16_t res_y = 640;
+std::string camera_path;
 
 //---Callback
 void CllbckMain(const ros::TimerEvent &event);

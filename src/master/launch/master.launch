@@ -1,11 +1,20 @@
 <launch>
+    <node name="web_video_server" pkg="web_video_server" type="web_video_server" output="screen">
+        <param name="port" value="9901"/>
+        <param name="ros_threads" value="8"/>
+    </node>
 
     <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
-        <arg name="port" value="9900" />
+        <arg name="port" value="9900"/>
+    </include>
+
+    <include file="$(find roswww)/launch/roswww.launch">
+        <arg name="port" value="9999"/>
+        <arg name="cached" value="false"/>
     </include>
 
     <!-- Main -->
-    <node  name="master" pkg="master" type="master" output="screen" respawn="true" />
+    <!-- <node  name="master" pkg="master" type="master" output="screen" respawn="true" /> -->
 
     <!-- Vision -->
     <node name="capture" pkg="vision" type="capture" output="screen" respawn="true" />

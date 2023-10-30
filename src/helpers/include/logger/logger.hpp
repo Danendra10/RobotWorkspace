@@ -7,13 +7,14 @@
 #include <cstdarg>
 #include <ctime>
 
-// At the top of logger.hpp
-#if defined(__has_include) && __has_include(<filesystem>)
-#include <filesystem>
-namespace fs = std::__fs::filesystem;
-#elif defined(__has_include) && __has_include(<experimental/filesystem>)
+#if defined(__has_include) && __has_include(<experimental/filesystem>)
 #include <experimental/filesystem>
+#include <cstring>
 namespace fs = std::experimental::filesystem;
+#elif defined(__has_include) && __has_include(<filesystem>)
+#include <filesystem>
+#include <cstring>
+namespace fs = std::__fs::filesystem;
 #else
 #include <filesystem>
 namespace fs = std::__fs::filesystem;
