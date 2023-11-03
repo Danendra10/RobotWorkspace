@@ -27,3 +27,12 @@ target_link_libraries(global_lib ${catkin_LIBRARIES})
 
 add_library(helper_lib src/helper.cpp)
 target_link_libraries(helper_lib ${catkin_LIBRARIES})
+
+add_library(pid_lib src/pid.cpp)
+target_link_libraries(pid_lib ${catkin_LIBRARIES})
+
+add_library(simple_math_lib src/simple_math.cpp)
+target_link_libraries(simple_math_lib ${catkin_LIBRARIES})
+
+add_library(potential_field_lib src/potential_field.cpp)
+target_link_libraries(potential_field_lib ${catkin_LIBRARIES})

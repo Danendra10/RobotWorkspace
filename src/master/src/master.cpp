@@ -23,7 +23,19 @@ int main(int argc, char **argv)
 
 void CllbckMain(const ros::TimerEvent &event)
 {
-    // logger_instance.Log(logger::GREEN, "Hello World!");
+    try
+    {
+        if (ros::ok())
+        {
+            KeyboardHandler();
+        }
+        else
+            throw std::runtime_error("ROS is not ok.");
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 //---Other Functions
@@ -33,4 +45,47 @@ int Init(int argc, char **argv)
     logger::Logger logger;
 
     return 0;
+}
+
+int8_t Kbhit()
+{
+    static const int STDIN = 0;
+    static bool initialized = false;
+
+    if (!initialized)
+    {
+        termios term;
+        tcgetattr(STDIN, &term);
+        term.c_lflag &= ~ICANON;
+        tcsetattr(STDIN, TCSANOW, &term);
+        setbuf(stdin, NULL);
+        initialized = true;
+    }
+
+    int bytesWaiting;
+    ioctl(STDIN, FIONREAD, &bytesWaiting);
+    return bytesWaiting;
+}
+
+/**
+ * This function is used to handle keyboard input based on STDIN
+ */
+void KeyboardHandler()
+{
+    static uint8_t prev_key = 0;
+    if (Kbhit() > 0)
+    {
+        char key = std::cin.get();
+
+        switch (key)
+        {
+        case 'q':
+            logger_instance.Log(logger::YELLOW, "Quitting...");
+            break;
+        case 'Q':
+            logger_instance.Log(logger::BLUE, "Quitting...");
+            break;
+        }
+        robot_base_action = (key != 'S' && key != ' '); // Set base_act to 0 if key == S or space
+    }
 }

@@ -5,6 +5,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   helpers
+  motion
 )
 
 
@@ -22,4 +23,4 @@ include_directories(
 
 
 add_executable(master src/master.cpp)
-target_link_libraries(master ${catkin_LIBRARIES} logger_lib)
+target_link_libraries(master ${catkin_LIBRARIES} logger_lib motion_lib simple_math_lib)

@@ -221,6 +221,7 @@ void CllbckSubRawFrame(const sensor_msgs::ImageConstPtr &msg)
         recieved_frame = cv_bridge::toCvShare(msg, "bgr8")->image;
         cv::cvtColor(recieved_frame, raw_frame, cv::COLOR_BGR2HSV);
         mtx_main_frame.unlock();
+
         logger_instance.Log(logger::GREEN, "Frame received.");
     }
     catch (cv_bridge::Exception &e)

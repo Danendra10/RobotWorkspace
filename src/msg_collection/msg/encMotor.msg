@@ -1,0 +1,12 @@
+int64 left_px
+int64 right_px
+int64 rear_px
+int32 left_vx
+int32 right_vx
+int32 rear_vx
+uint8 left_nrecv
+uint8 right_nrecv
+uint8 rear_nrecv
+float32 left_act_vx
+float32 right_act_vx
+float32 rear_act_vx

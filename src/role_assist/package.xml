@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>role_assist</name>
+  <version>0.0.0</version>
+  <description>The role_assist package</description>
+  <maintainer email="danen@todo.todo">danen</maintainer>
+
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>multirole</build_depend>
+  <build_depend>motion</build_depend>
+  <build_depend>msg_collection</build_depend>
+
+
+  <export>
+
+  </export>
+</package>
