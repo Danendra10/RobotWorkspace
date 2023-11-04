@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
   sensor_msgs
+  msg_collection
 )
 
 find_package(OpenCV REQUIRED)
@@ -39,3 +40,7 @@ target_link_libraries(capture ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} logger_lib
 
 add_executable(main src/main.cpp)
 target_link_libraries(main ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} logger_lib vision_helper_lib global_lib)
+
+if($ENV{ENVIRONMENT} STREQUAL "Dev")
+  add_compile_definitions(DEVELOPMENT)
+endif()

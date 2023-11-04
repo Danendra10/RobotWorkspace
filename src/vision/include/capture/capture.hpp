@@ -40,4 +40,6 @@ void CllbckMain(const ros::TimerEvent &event);
 //---Prototypes
 int Init();
 int Routine();
+void InitializeCaptureProperties();
+void ReopenCapture();
 #endif

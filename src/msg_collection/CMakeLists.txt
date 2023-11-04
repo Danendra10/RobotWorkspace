@@ -12,6 +12,11 @@ add_message_files(
     encMotor.msg
 )
 
+add_service_files(
+  FILES
+  ThresholdVision.srv
+)
+
 generate_messages(
   DEPENDENCIES
   std_msgs

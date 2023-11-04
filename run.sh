@@ -1,0 +1,1 @@
+catkin_make && source devel/setup.bash && roslaunch master master.launch

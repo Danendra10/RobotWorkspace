@@ -28,6 +28,7 @@ void CllbckMain(const ros::TimerEvent &event)
         if (ros::ok())
         {
             KeyboardHandler();
+            roles[ATT]();
         }
         else
             throw std::runtime_error("ROS is not ok.");
@@ -41,8 +42,10 @@ void CllbckMain(const ros::TimerEvent &event)
 //---Other Functions
 int Init(int argc, char **argv)
 {
-    //---Init Logger
-    logger::Logger logger;
+    std::string robot_num = getenv("ROBOT_NUM");
+    robot_number = atoi(robot_num.c_str());
+
+    logger_instance.Log(logger::YELLOW, "Robot number: %d", robot_number);
 
     return 0;
 }

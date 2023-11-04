@@ -6,6 +6,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   helpers
   motion
+  multirole
+  role_attacker
 )
 
 
@@ -23,4 +25,4 @@ include_directories(
 
 
 add_executable(master src/master.cpp)
-target_link_libraries(master ${catkin_LIBRARIES} logger_lib motion_lib simple_math_lib)
+target_link_libraries(master ${catkin_LIBRARIES} logger_lib motion_lib simple_math_lib multirole_lib role_attacker_lib)

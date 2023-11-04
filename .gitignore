@@ -3,3 +3,4 @@ devel
 .vscode
 .VSCodeCounter
 .trunk
+src/master/www/react_code/node_modules

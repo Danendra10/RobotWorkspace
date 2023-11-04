@@ -10,7 +10,7 @@
 
   <build_depend>multirole</build_depend>
   <build_depend>motion</build_depend>
-  <build_depend>msg_collection</build_depend>
+  <build_depend>helpers</build_depend>
 
 
   <export>
